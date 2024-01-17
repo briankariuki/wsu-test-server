@@ -12,7 +12,10 @@ export enum UserStatus {
 
 export class User extends BaseDocument {
   @prop({ type: () => String, trim: true })
-  public displayName!: string;
+  public firstName!: string;
+
+  @prop({ type: () => String, trim: true })
+  public lastName!: string;
 
   @prop({
     type: () => String,
@@ -22,15 +25,6 @@ export class User extends BaseDocument {
     trim: true,
   })
   public email!: string;
-
-  @prop({
-    type: () => String,
-    unique: true,
-    sparse: true,
-    lowercase: true,
-    trim: true,
-  })
-  public phoneNumber!: string;
 
   public static paginate: PaginateMethod<User>;
 

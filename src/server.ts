@@ -33,24 +33,24 @@ async function serve(): Promise<void> {
   });
 
   app.post("/v1/user", async (req: Request, res: Response) => {
-    const { displayName, email, phoneNumber } = req.body;
+    const { firstName, email, lastName } = req.body;
 
     const user = await userService.create({
-      displayName: displayName,
+      firstName: firstName,
       email: email,
-      phoneNumber: phoneNumber,
+      lastName: lastName,
     });
     res.json({ user: user });
   });
 
   app.put("/v1/user/:id", async (req: Request, res: Response) => {
-    const { displayName, email, phoneNumber } = req.body;
+    const { firstName, email, lastName } = req.body;
     const userId = req.params["id"];
 
     const user = await userService.update(userId, {
-      displayName: displayName,
+      firstName: firstName,
       email: email,
-      phoneNumber: phoneNumber,
+      lastName: lastName,
     });
     res.json({ user: user });
   });
