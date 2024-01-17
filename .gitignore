@@ -1,0 +1,10 @@
+node_modules
+build
+*.log*
+ecosystem.config.js
+*.DS_Store
+.history
+
+.vscode/
+
+files/*
